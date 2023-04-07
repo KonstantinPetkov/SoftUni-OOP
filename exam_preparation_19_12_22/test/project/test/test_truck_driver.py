@@ -40,7 +40,7 @@ class TestTruckDriver(TestCase):
         self.assertEqual("Cargo for 3 to Cargo2 was added as an offer.", result)
 
     def test_drive_best_cargo_no_offer_available_raises_error(self):
-        self.assertNotEquals({}, self.cargo)
+        self.driver.available_cargos = {}
 
         with self.assertRaises(ValueError) as err:
             self.driver.drive_best_cargo_offer()
